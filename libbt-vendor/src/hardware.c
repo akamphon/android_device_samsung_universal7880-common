@@ -26,20 +26,22 @@
 
 #define LOG_TAG "bt_vendor"
 
-#include <utils/Log.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <signal.h>
-#include <time.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <dirent.h>
-#include <ctype.h>
-#include <cutils/properties.h>
-#include <stdlib.h>
 #include "bt_hci_bdroid.h"
 #include "bt_vendor_qcom.h"
+#include <ctype.h>
+#include <dirent.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <signal.h>
+#include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <time.h>
+#include <unistd.h>
+
+#include <cutils/properties.h>
+#include <utils/Log.h>
 #define MAX_CNT_RETRY 100
 
 int hw_config(int nState)

@@ -26,20 +26,24 @@
 #define LOG_TAG "bt_vendor"
 #define BLUETOOTH_MAC_ADDR_BOOT_PROPERTY "ro.boot.btmacaddr"
 
-#include <utils/Log.h>
-#include <cutils/properties.h>
-#include <fcntl.h>
-#include <termios.h>
+#include "bt_vendor_lib.h"
+#include "bt_vendor_persist.h"
 #include "bt_vendor_qcom.h"
-#include "hci_uart.h"
 #include "hci_smd.h"
+#include "hci_uart.h"
+#include "hw_rome.h"
+
+#include <fcntl.h>
+#include <linux/un.h>
+#include <pthread.h>
 #include <sys/ioctl.h>
 #include <sys/socket.h>
+#include <termios.h>
+#include <unistd.h>
+
+#include <cutils/properties.h>
 #include <cutils/sockets.h>
-#include <linux/un.h>
-#include "bt_vendor_persist.h"
-#include "hw_rome.h"
-#include "bt_vendor_lib.h"
+#include <utils/Log.h>
 #define WAIT_TIMEOUT 200000
 #define BT_VND_OP_GET_LINESPEED 30
 
@@ -620,7 +624,7 @@ static int init(const bt_vendor_callbacks_t *cb, unsigned char *bdaddr)
 
     temp->rfkill_id = -1;
     temp->enable_extldo = FALSE;
-    temp->cb = cb;
+    temp->cb = (bt_vendor_callbacks_t*)cb;
     temp->ant_fd = -1;
     temp->soc_type = get_bt_soc_type();
     soc_init(temp->soc_type);
