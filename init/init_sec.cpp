@@ -8,7 +8,6 @@
 #include <sys/_system_properties.h>
 
 #include "property_service.h"
-#include "vendor_init.h"
 
 #include "init_sec.h"
 
@@ -16,6 +15,8 @@
 #define BUILD_NAME_LEN 8  // e.g. "XXU2BQH4"
 #define CODENAME_LEN   11 // e.g. "a5y17ltecan"
 
+namespace android {
+namespace init {
 
 static void property_override(char const prop[], char const value[]) {
     prop_info *pi;
@@ -79,4 +80,7 @@ void vendor_load_properties()
     property_override("ro.build.product", device.c_str());
     property_override("ro.build.description", description.c_str());
     property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", fingerprint.c_str());
+}
+
+}
 }
