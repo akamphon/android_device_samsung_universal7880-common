@@ -99,7 +99,8 @@ PRODUCT_PACKAGES += \
     camera.exynos5 \
     libexynoscamera_shim \
     libcamera_client_shim \
-    libstagefright_shim
+    libstagefright_shim \
+    SnapdragonCamera2
 
 # DRM
 PRODUCT_PACKAGES += \
