@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2018 Omnirom
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          android:sharedUserId="android.uid.system"
+          package="org.omnirom.device"
+          android:versionCode="6"
+          android:versionName="2.4" >
+
+    <uses-permission android:name="android.permission.INJECT_EVENTS"/>
+    <protected-broadcast android:name="org.omnirom.device.CUST_UPDATE" />
+
+    <uses-sdk
+        android:minSdkVersion="24" />
+
+    <application
+        android:icon="@mipmap/ic_launcher_settings"
+        android:label="@string/device_settings_app_name"
+        android:theme="@style/DevicePartsTheme"
+        android:defaultToDeviceProtectedStorage="true"
+        android:directBootAware="true">
+
+        <provider
+            android:name=".ConfigPanelSearchIndexablesProvider"
+            android:authorities="org.omnirom.device"
+            android:multiprocess="false"
+            android:grantUriPermissions="true"
+            android:permission="android.permission.READ_SEARCH_INDEXABLES"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.action.SEARCH_INDEXABLES_PROVIDER" />
+            </intent-filter>
+        </provider>
+
+        <activity
+            android:name=".ButtonSettingsActivity"
+            android:exported="false"
+            android:label="@string/button_panel_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity-alias
+            android:name="org.omnirom.device.DeviceSettings"
+            android:exported="true"
+            android:label="@string/button_panel_title"
+            android:targetActivity="ButtonSettingsActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity android:name=".KeyHandler" />
+
+	<receiver android:name="org.omnirom.device.Startup" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.PRE_BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

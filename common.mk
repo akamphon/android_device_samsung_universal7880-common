@@ -22,6 +22,10 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_PACKAGES += \
     dtbhtoolExynos
 
+# Device Settings
+PRODUCT_PACKAGES += \
+    DeviceParts
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.samsungexynos7880 \

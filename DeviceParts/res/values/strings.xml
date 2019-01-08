@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2018 Omnirom
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Category title -->
+    <string name="buttons_title">Hardware Buttons</string>
+    <string name="graphics_title">Graphics</string>
+
+    <!-- Application title -->
+    <string name="device_settings_app_name">Device Features</string>
+
+    <!-- Button settings -->
+    <string name="button_panel_title">Device Features</string>
+    <string name="additional_buttons_title">Additional buttons</string>
+
+    <string name="button_swap_title">Swap buttons</string>
+    <string name="button_swap_summary">Swap the order of recents and back buttons</string>
+
+    <!-- DT2W -->
+    <string name="gestures_title">Gestures</string>
+    <string name="dt2w_title">Tap to wake</string>
+    <string name="dt2w_summary">Double tap on screen to wake device</string>
+
+    <!-- Fingerprint -->
+    <string name="fingerprint_title">Fingerprint</string>
+    <string name="fingerprint_as_home_title">Fingerprint as home</string>
+    <string name="fingerprint_as_home_summary">Use the fingerprint sensor as a home button</string>
+    <string name="fingerprint_wakeup_title">Fingerprint wake-up</string>
+    <string name="fingerprint_wakeup_summary">Allow the fingerprint sensor to wake the device while the screen is off</string>
+
+    <!-- Home Wake -->
+    <string name="button_home_wake_title">Home button wake</string>
+    <string name="button_home_wake_summary">Pressing the home button will wake the device</string>
+
+</resources>
