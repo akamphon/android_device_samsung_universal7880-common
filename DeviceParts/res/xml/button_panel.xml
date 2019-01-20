@@ -59,4 +59,19 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/doze_title">
+
+        <PreferenceScreen
+            android:key="doze"
+            android:title="@string/doze_category_title"
+            android:summary="@string/doze_category_summary"
+            android:persistent="false" >
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="org.omnirom.device"
+                    android:targetClass="org.omnirom.device.DozeSettingsActivity" />
+    </PreferenceScreen>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

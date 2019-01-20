@@ -46,4 +46,25 @@
     <string name="button_home_wake_title">Home button wake</string>
     <string name="button_home_wake_summary">Pressing the home button will wake the device</string>
 
+    <!-- Doze -->
+    <string name="doze_title">Doze</string>
+    <string name="doze_category_title">Ambient display</string>
+    <string name="doze_category_summary">Wake screen when you receive notifications</string>
+    <string name="tilt_sensor_title">Tilt sensor</string>
+    <string name="pick_up_gesture_title">Pick-up</string>
+    <string name="pick_up_gesture_summary">Pulse notifications on pick-up</string>
+    <string name="proximity_sensor_title">Proximity sensor</string>
+    <string name="hand_wave_gesture_title">Hand wave</string>
+    <string name="hand_wave_gesture_summary">Pulse notifications on hand wave</string>
+    <string name="pocket_gesture_title">Pocket</string>
+    <string name="pocket_gesture_summary">Pulse notifications on removal from pocket</string>
+    <string name="dialog_ok">OK</string>
+    <string name="doze_settings_help_title">Help</string>
+    <string name="doze_settings_help_text">These features use sensor events to launch a doze notification pulse. The chosen sensor is only enabled when the device receives a notification, this helps to reduce battery usage. There is also an option to enable the chosen sensor as soon as the screen turns off, this will cause higher battery usage.</string>
+    <string name="switch_bar_on">On</string>
+    <string name="switch_bar_off">Off</string>
+    <string name="ambient_display_enable">Ambient display must be enabled in display settings or will be activated automatically if you activate ambient display here</string>
+    <string name="ambient_display_always_on_title">Always on</string>
+    <string name="ambient_display_always_on_summary">Show time, notification icons, and other info. Increased battery usage.</string>
+
 </resources>
