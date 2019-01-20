@@ -20,7 +20,12 @@
           android:versionCode="6"
           android:versionName="2.4" >
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.INJECT_EVENTS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <protected-broadcast android:name="com.android.systemui.doze.pulse" />
     <protected-broadcast android:name="org.omnirom.device.CUST_UPDATE" />
 
     <uses-sdk
@@ -67,14 +72,35 @@
             </intent-filter>
         </activity-alias>
 
+        <activity
+            android:name="org.omnirom.device.DozeSettingsActivity"
+            android:label="@string/doze_category_title">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".KeyHandler" />
 
+        <service android:name=".DozeService"
+                 android:permission="XiaomiDozeService">
+        </service>
+
 	<receiver android:name="org.omnirom.device.Startup" >
-            <intent-filter>
+            <intent-filter android:priority="100">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.PRE_BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
+        <receiver android:name="org.omnirom.device.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

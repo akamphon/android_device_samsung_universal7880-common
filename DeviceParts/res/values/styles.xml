@@ -27,7 +27,7 @@
     <!-- Preferences -->
     <style name="SettingsPreference" parent="@*android:style/Preference.DeviceDefault">
         <item name="android:singleLineTitle">false</item>
-        <item name="android:iconSpaceReserved">true</item>
+        <item name="android:iconSpaceReserved">false</item>
     </style>
 
     <style name="SettingsSwitchPreference" parent="@*android:style/Preference.DeviceDefault.SwitchPreference">
@@ -50,4 +50,12 @@
     </style>
 
     <style name="SettingsListPreference" parent="SettingsPreference"/>
+
+    <style name="Theme.Main.SwitchBar" parent="@android:style/ThemeOverlay.Material.ActionBar">
+    </style>
+
+    <style name="Theme.Main.SwitchBar.Switch">
+        <item name="android:trackTint">@color/switchbar_switch_track_tint</item>
+        <item name="android:thumbTint">@color/switchbar_switch_thumb_tint</item>
+    </style>
 </resources>
