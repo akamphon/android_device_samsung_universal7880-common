@@ -37,10 +37,21 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final boolean DEBUG = true;
 
     private static final int KEY_HOME = 102;
+    private static final int KEY_HOME_VIRTUAL = 96;
+    private static final int KEY_BACK = 158;
+    private static final int KEY_RECENTS = 139;
+
+    private static final int[] sDisabledKeys = new int[]{
+        KEY_HOME,
+        KEY_HOME_VIRTUAL,
+        KEY_BACK,
+        KEY_RECENTS
+    };
 
     protected final Context mContext;
     private Handler mHandler = new Handler();
     private SettingsObserver mSettingsObserver;
+    private static boolean mButtonDisabled;
     private static boolean mHomeButtonWakeEnabled;
 
     private class SettingsObserver extends ContentObserver {
@@ -49,6 +60,9 @@ public class KeyHandler implements DeviceKeyHandler {
         }
 
         void observe() {
+            mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.OMNI_HARDWARE_KEYS_DISABLE),
+                    false, this);
             mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
                     Settings.System.OMNI_BUTTON_EXTRA_KEY_MAPPING),
                     false, this);
@@ -88,10 +102,23 @@ public class KeyHandler implements DeviceKeyHandler {
 
     @Override
     public boolean isDisabledKeyEvent(KeyEvent event) {
+        if (DEBUG) Log.i(TAG, "isDisabledKeyEvent called");
+        if (mButtonDisabled) {
+            if (DEBUG) Log.i(TAG, "Buttons are disabled");
+            if (ArrayUtils.contains(sDisabledKeys, event.getScanCode())) {
+                if (DEBUG) Log.i(TAG, "Key blocked=" + event.getScanCode());
+                return true;
+            }
+        }
         return false;
     }
 
     public static void setButtonSetting(Context context) {
+        if (DEBUG) Log.i(TAG, "SetButtonDisable called" );
+        mButtonDisabled = Settings.System.getIntForUser(
+                context.getContentResolver(), Settings.System.OMNI_HARDWARE_KEYS_DISABLE, 0,
+                UserHandle.USER_CURRENT) == 1;
+        if (DEBUG) Log.i(TAG, "setButtonDisable=" + mButtonDisabled);
         mHomeButtonWakeEnabled = Settings.System.getIntForUser(
                 context.getContentResolver(), Settings.System.OMNI_BUTTON_EXTRA_KEY_MAPPING, 0,
                 UserHandle.USER_CURRENT) == 1;

@@ -38,7 +38,9 @@ public class ButtonSettingsFragment extends PreferenceFragment
         implements OnPreferenceChangeListener {
 
     private static final String KEY_HOMEBUTTON_SWITCH = "homebutton_switch";
+    private static final String KEY_HARDWARE_KEYS_DISABLE = "hardware_keys_disable";
     private SwitchPreference mHomeButtonSwitch;
+    private SwitchPreference mKeysDisablesSwitch;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -62,6 +64,23 @@ public class ButtonSettingsFragment extends PreferenceFragment
                  return false;
              }
         });
+
+        SwitchPreference mKeysDisablesSwitch = (SwitchPreference) findPreference(KEY_HARDWARE_KEYS_DISABLE);
+        mKeysDisablesSwitch.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.OMNI_HARDWARE_KEYS_DISABLE, 0) != 0);
+
+        mKeysDisablesSwitch.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+             @Override
+             public boolean onPreferenceClick(Preference preference) {
+                 if (preference == mKeysDisablesSwitch) {
+                     Settings.System.putInt(getActivity().getContentResolver(),
+                             Settings.System.OMNI_HARDWARE_KEYS_DISABLE, mKeysDisablesSwitch.isChecked() ? 1 : 0);
+                     return true;
+                 }
+                 return false;
+             }
+        });
+
     }
 
     @Override

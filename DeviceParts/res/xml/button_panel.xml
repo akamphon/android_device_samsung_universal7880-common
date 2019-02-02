@@ -30,6 +30,12 @@
             android:title="@string/button_swap_title"
             android:summary="@string/button_swap_summary" />
 
+        <SwitchPreference
+            android:key="hardware_keys_disable"
+            android:title="@string/hardware_keys_disable_title"
+            android:summary="@string/hardware_keys_disable_summary"
+            android:persistent="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
