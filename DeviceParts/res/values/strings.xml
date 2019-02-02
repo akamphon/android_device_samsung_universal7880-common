@@ -46,6 +46,10 @@
     <string name="button_home_wake_title">Home button wake</string>
     <string name="button_home_wake_summary">Pressing the home button will wake the device</string>
 
+    <!-- Disable hw keys -->
+    <string name="hardware_keys_disable_title">Disable keys</string>
+    <string name="hardware_keys_disable_summary">Force disable hardware keys</string>
+
     <!-- Doze -->
     <string name="doze_title">Doze</string>
     <string name="doze_category_title">Ambient display</string>
