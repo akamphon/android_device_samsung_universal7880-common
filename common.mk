@@ -99,7 +99,8 @@ PRODUCT_PACKAGES += \
     camera.exynos5 \
     libexynoscamera_shim \
     libcamera_client_shim \
-    libstagefright_shim
+    libstagefright_shim \
+    Snap
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml
