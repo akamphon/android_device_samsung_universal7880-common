@@ -231,4 +231,5 @@ endif
 BOARD_SECCOMP_POLICY += device/samsung/universal7880-common/seccomp
 
 # SELinux
-BOARD_SEPOLICY_DIRS += device/samsung/universal7880-common/sepolicy
+# BOARD_SEPOLICY_DIRS += device/samsung/universal7880-common/sepolicy
+include $(LOCAL_PATH)/sepolicy_tmp/sepolicy.mk
