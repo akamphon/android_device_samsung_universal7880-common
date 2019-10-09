@@ -110,6 +110,12 @@
          config to 7. -->
     <integer name="config_deviceHardwareKeys">83</integer>
 
+    <!-- Default value for proximity check on screen wake
+     NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms)-->
+    <bool name="config_proximityCheckOnWake">true</bool>
+    <integer name="config_proximityCheckTimeout">400</integer>
+    <bool name="config_proximityCheckOnWakeEnabledByDefault">false</bool>
+
     <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
          of the following keys present:
@@ -241,7 +247,7 @@
 
     <!-- Power Management: Specifies whether to decouple the interactive state of the
          device from the display on/off state. -->
-    <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
+    <bool name="config_powerDecoupleInteractiveModeFromDisplay">false</bool>
 
     <!-- If true, the display will be shifted around in ambient mode. -->
     <bool name="config_enableBurnInProtection">true</bool>
