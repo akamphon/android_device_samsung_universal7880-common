@@ -45,6 +45,8 @@ TARGET_2ND_CPU_VARIANT := cortex-a53
 # Binder
 TARGET_USES_64_BIT_BINDER := true
 
+BUILD_BROKEN_DUP_RULES := true
+
 # Extracted with libbootimg
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
@@ -58,7 +60,7 @@ TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
 # Kernel
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+# TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_LINUX_KERNEL_VERSION := 3.18
 
 # Kernel config
