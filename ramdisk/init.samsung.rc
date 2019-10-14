@@ -703,7 +703,7 @@ service icd /system/bin/icd
     class main
     user system
     group system log
-    onrestart check_icd
+#    onrestart check_icd
     oneshot
 
 # Sensorhub service
