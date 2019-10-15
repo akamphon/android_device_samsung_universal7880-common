@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
           android:sharedUserId="android.uid.system"
           package="org.omnirom.device"
           android:versionCode="6"
@@ -35,6 +36,8 @@
         android:icon="@mipmap/ic_launcher_settings"
         android:label="@string/device_settings_app_name"
         android:theme="@style/DevicePartsTheme"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        tools:replace="android:appComponentFactory"
         android:defaultToDeviceProtectedStorage="true"
         android:directBootAware="true">
 
@@ -67,7 +70,7 @@
             android:targetActivity="ButtonSettingsActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+                <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity-alias>
