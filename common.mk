@@ -22,6 +22,11 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_HOST_PACKAGES += \
     dtbhtoolExynos
 
+# first_stage_mount
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/ramdisk/fstab.samsungexynos7880:$(TARGET_COPY_OUT_RAMDISK)/fstab.samsungexynos7880 \
+	$(LOCAL_PATH)/ramdisk/fstab.samsungexynos7880:$(TARGET_COPY_OUT_VENDOR)/fstab.samsungexynos7880
+
 # Device Settings
 PRODUCT_PACKAGES += \
     DeviceParts
@@ -83,16 +88,20 @@ PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
 
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
-    android.hardware.graphics.composer@2.1-impl \
-    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.composer@2.2-service \
+    android.hardware.graphics.mapper@2.0-impl-2.1 \
     android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service \
     android.hardware.renderscript@1.0-impl \
     gralloc.exynos5 \
+    libhwc2on1adapter \
     memtrack.exynos5
 
 PRODUCT_PACKAGES += \
     libion \
-    libfimg
+    libfimg \
+	libtinyxml
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -211,7 +220,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@2.0-impl \
     audio_amplifier.universal7880_32 \
     audio.primary.universal7880_32 \
-    audio.a2dp.default \
+    audio.a1dp.default \
     audio.usb.default \
     audio.r_submix.default \
     libtfa98xx_32 \
