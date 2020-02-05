@@ -5,3 +5,5 @@ allow hal_power_default sysfs_input:file { open read write };
 
 allow hal_power_default sysfs_virtual:dir { open read search };
 allow hal_power_default sysfs_virtual:file { open read write };
+allow hal_power_default sysfs:dir { read open };
+allow hal_power_default sysfs:file { read open };
