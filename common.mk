@@ -112,10 +112,6 @@ PRODUCT_PACKAGES += \
     keystore.exynos5 \
     android.hardware.keymaster@3.0-impl
 
-# hardware/samsung/AdvancedDisplay (MDNIE)
-PRODUCT_PACKAGES += \
-    AdvancedDisplay
-
 # Radio
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.0 \
@@ -254,18 +250,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service.samsung \
     libbauthtzcommon_shim
-
-# Touch features
-PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.samsung
-
-# Livedisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service.samsung-exynos
-
-# Trust HAL
-PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
 
 # Sensors
 PRODUCT_PACKAGES += \
