@@ -7,6 +7,9 @@ product/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
 lib/libtfa98xx.so
 vendor/etc/Tfa9896.cnt
 
+# Audio routing
+lib/libaudioroute.so|46fcafe8de5c4fe078ad9e9e613bc260fd137106
+
 # Bluetooth
 lib/libantradio.so
 lib64/libantradio.so
